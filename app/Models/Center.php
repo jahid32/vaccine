@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Center extends Model
 {
@@ -17,8 +17,7 @@ class Center extends Model
     protected $fillable = [
         'name',
         'location',
-        'capacity',
-        'current_count',
+        'daily_limit',
     ];
 
     /**
@@ -29,4 +28,6 @@ class Center extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+
 }

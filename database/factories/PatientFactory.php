@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Center;
 use App\Models\Patient;
+use Illuminate\Support\Str;
+use App\Enums\VaccinationStatus;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PatientFactory extends Factory
 {
@@ -26,8 +27,8 @@ class PatientFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
-            'status' => $this->faker->randomElement(["App\\Enums\\VaccinationStatus"]),
-            'center_id' => Center::factory(),
+            'status' => VaccinationStatus::NotScheduled,
+            'center_id' => Center::inRandomOrder()->first()->id,
         ];
     }
 }

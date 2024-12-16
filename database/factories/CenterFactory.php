@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Center;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CenterFactory extends Factory
 {
@@ -23,8 +23,7 @@ class CenterFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'location' => $this->faker->word(),
-            'capacity' => $this->faker->numberBetween(-10000, 10000),
-            'current_count' => $this->faker->numberBetween(-10000, 10000),
+            'daily_limit' => $this->faker->numberBetween(-10000, 10000),
         ];
     }
 }

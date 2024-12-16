@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\VaccinationStatus;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -19,7 +20,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->enum('status', ["App\\Enums\\VaccinationStatus"])->default('App\\Enums\\VaccinationStatus');
+            $table->datetime('scheduled_date')->nullable();
+            $table->enum('status', VaccinationStatus::toArray())->default(VaccinationStatus::NotScheduled);
             $table->foreignId('center_id')->constrained();
             $table->timestamps();
         });
