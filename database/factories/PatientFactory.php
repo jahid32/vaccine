@@ -23,7 +23,7 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
-            'nid' => $this->faker->word(),
+            'nid' => $this->faker->numerify(str_repeat('#', 14)),
             'name' => $this->faker->name(),
             'email' => $this->faker->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
