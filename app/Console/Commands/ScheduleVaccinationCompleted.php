@@ -28,7 +28,7 @@ class ScheduleVaccinationCompleted extends Command
     public function handle()
     {
         Patient::where('status', 'Scheduled')
-            ->where('scheduled_date', '<git ', Carbon::today())
+            ->where('scheduled_date', '<', Carbon::today())
             ->update(['status' => 'Vaccinated']);
 
         $this->info('Vaccination schedule completed.');
