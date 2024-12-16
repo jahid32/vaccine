@@ -7,7 +7,9 @@ use Filament\Tables;
 use App\Models\Patient;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Enums\VaccinationStatus;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PatientResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -22,28 +24,13 @@ class PatientResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\TextInput::make('nid')
-                    ->required(),
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required(),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->required(),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
-                Forms\Components\Select::make('center_id')
-                    ->relationship('center', 'name')
-                    ->required(),
-            ]);
+            ->schema(Patient::getForm());
     }
 
     public static function table(Table $table): Table
     {
         return $table
+
             ->columns([
                 Tables\Columns\TextColumn::make('nid')
                     ->searchable(),
@@ -68,7 +55,12 @@ class PatientResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                 SelectFilter::make('status')
+                ->options(VaccinationStatus::toArray()),
+                SelectFilter::make('center')
+                ->relationship('center', 'name')
+                ->searchable()
+                ->preload(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -78,13 +70,6 @@ class PatientResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array
