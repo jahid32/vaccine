@@ -81,3 +81,4 @@ class PatientResource extends Resource
         ];
     }
 }
+

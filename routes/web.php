@@ -9,7 +9,11 @@ Route::get('/', function () {
 
 Route::get('/registration', PatientRegistration::class);
 
-
+Route::post('/webhook/gform', function () {
+    $payload = request()->all();
+    logger('Google Form Webhook', $payload);
+    return response()->json(['message' => 'Webhook received']);
+})->withoutMiddleware([Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]);
 
 
 Route::middleware([
