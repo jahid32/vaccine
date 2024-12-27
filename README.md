@@ -1,24 +1,17 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-# Assignment 13: Vaccine registration system
+# Assignment 14: Google Form + Zapier webhook
 
-This week, you will develop a partial implementation of a 'Vaccine registration system'. 
+In your previous assignment, you created a 'Registration form' for the Vaccine Registration System. 
 
-## Features
-Registration page for users with:
-NID, email, phone number, name
-Select vaccine center 
-Vaccine centers can be added only by Seeders. No need to implement a CRUD for it. 
-Every vaccine center will have a 'daily limit'. 
+In this assignment, you need to do the following:
+- [x]  Create a 'Google Form' with the same fields as the Registration form
+- [x] Connect the Google form with Zapier
+- [x] If anyone submits the Google form, accept the data in your application using webhook of Zapier and register the user in your Vaccine registration system.
+That means, users can use this Google form to register in Vaccine registration system.
 
-## Schedule vaccination date:
-Daily at 9 PM
-Select users who registered first (consider vaccine center limit)
-Send Email notification (Async job)
-Skip weekends (Sunday-Thursday)
-User's will have the following status:
-Not scheduled
-Scheduled
-Vaccinated (When the scheduled time is over, the user will be considered vaccinated)
-##  Bonus task:
-Create an admin panel and Show Users List with filter based on status and vaccine center (using FilamentPHP)
+How you can connect 'Google Form' with Zapier and accept the payload in your application via Webhook? 
+That's your task to figure out!
+
+> [!TIP]
+> Note: Along with the code, you need to share a recorded video explaining that your solution is working properly. Because it won't be possible for us to verify everyone's assignment by setting up the integration.
