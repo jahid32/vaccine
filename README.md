@@ -15,3 +15,14 @@ That's your task to figure out!
 
 > [!TIP]
 > Note: Along with the code, you need to share a recorded video explaining that your solution is working properly. Because it won't be possible for us to verify everyone's assignment by setting up the integration.
+
+## Solution
+
+Branch zapier
+```
+git checkout zapier
+```
+
+Check out this  video about Zapier Implementation:
+
+[![Watch this cool video](https://img.youtube.com/vi/ImtuVQXSo_A/0.jpg)](https://youtu.be/ImtuVQXSo_A)
